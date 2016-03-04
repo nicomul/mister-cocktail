@@ -1,10 +1,11 @@
 class CocktailsController < ApplicationController
-  before_action :set_restaurant, only: [ :show, :update, :edit, :destroy ]
+  before_action :set_cocktail, only: [ :show, :update, :edit, :destroy ]
   def index
     @cocktails = Cocktail.all
   end
 
   def show
+    @dose = Dose.new
   end
 
   def new

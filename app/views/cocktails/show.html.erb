@@ -1,2 +1,20 @@
-<h1>Cocktail#show</h1>
-<p>Find me in app/views/cocktail/show.html.erb</p>
+<div class='text-center'>
+  <h1><%= @cocktail.name %></h1>
+
+  <% @cocktail.doses.each do |dose| %>
+    <p><%= dose.description %> (<%= dose.ingredient.name %>)</p>
+  <% end %>
+
+
+  <%= link_to 'Back', cocktails_path %>
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :description, placeholder: '3cl'%>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+
+
+
+</div>
